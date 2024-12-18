@@ -1,7 +1,7 @@
 if (window.location.href.includes("loop.cloud-dev.microsoft")) {
-  console.log("Intercepted by content script.");
+  console.log("[LoopScriptVersion] Intercepted by content script.");
 
-  const queryString = window.location.search; // Get "?name=John&age=30"
+  const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
   const codeVersion = urlParams.get("scriptVersion");
@@ -17,7 +17,7 @@ if (window.location.href.includes("loop.cloud-dev.microsoft")) {
         document.close();
       })
       .catch((error) => {
-        console.error("Failed to fetch replacement content:", error);
+        console.error("[LoopScriptVersion] Failed to fetch replacement content:", error);
       });
   }
 }

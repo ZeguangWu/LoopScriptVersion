@@ -4,7 +4,6 @@
   "version": "1.0",
   "permissions": [
     "webRequest",
-    "webRequestBlocking",
     "https://res-sdf.cdn.office.net/*",
     "https://loop.cloud-dev.microsoft/*"
   ],
@@ -14,8 +13,5 @@
       "js": ["content.js"],
       "run_at": "document_start"
     }
-  ],
-  "browser_action": {
-    "default_popup": "popup.html"
-  }
+  ]
 }
