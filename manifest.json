@@ -5,11 +5,15 @@
   "permissions": [
     "webRequest",
     "https://res-sdf.cdn.office.net/*",
-    "https://loop.cloud-dev.microsoft/*"
+    "https://loop.cloud-dev.microsoft/*",
+    "https://loop.cloud.microsoft/*"
   ],
   "content_scripts": [
     {
-      "matches": ["https://loop.cloud-dev.microsoft/*"],
+      "matches": [
+        "https://loop.cloud-dev.microsoft/*",
+        "https://loop.cloud.microsoft/*"
+      ],
       "js": ["content.js"],
       "run_at": "document_start"
     }

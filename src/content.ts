@@ -1,4 +1,7 @@
-if (window.location.href.includes("loop.cloud-dev.microsoft")) {
+if (
+  window.location.href.includes("loop.cloud-dev.microsoft") ||
+  window.location.href.includes("loop.cloud.microsoft")
+) {
   console.log("[LoopScriptVersion] Intercepted by content script.");
 
   const queryString = window.location.search;
@@ -8,7 +11,9 @@ if (window.location.href.includes("loop.cloud-dev.microsoft")) {
 
   if (!!codeVersion && codeVersion.length > 0) {
     // Fetch the replacement content from the alternative URL
-    fetch(`https://res-sdf.cdn.office.net/fluid/stg/loop-app/versionless/deployment/${codeVersion}/index.html`)
+    fetch(
+      `https://res-sdf.cdn.office.net/fluid/stg/loop-app/versionless/deployment/${codeVersion}/index.html`
+    )
       .then((response) => response.text())
       .then((data) => {
         // Replace the current page content with the fetched data
@@ -17,7 +22,10 @@ if (window.location.href.includes("loop.cloud-dev.microsoft")) {
         document.close();
       })
       .catch((error) => {
-        console.error("[LoopScriptVersion] Failed to fetch replacement content:", error);
+        console.error(
+          "[LoopScriptVersion] Failed to fetch replacement content:",
+          error
+        );
       });
   }
 }
